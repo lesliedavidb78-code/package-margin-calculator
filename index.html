@@ -70,7 +70,6 @@ window.addPotByKey=key=>{
   state.pots.push(potFromSource(sp,row));
   state.loaded=Array.from(new Set([...(state.loaded||[]),sp]));
   potDraft='';const inp=$('potAddInput');if(inp)inp.value='';
-  potOpenSpecs=potOpenSpecs.filter(x=>x!==sp);//选完自动收起该组
   render();
 };
 window.addPotFromCombo=()=>{
@@ -83,6 +82,8 @@ window.addPotFromCombo=()=>{
   addPotByKey(pick.spec+'|'+pick.name);
 };
 window.loadAllSpecs=()=>{loadSpec('__all__');render()};
+window.collapseAllPotGroups=()=>{potOpenSpecs=[];render()};
+window.expandAllPotGroups=()=>{potOpenSpecs=POT_ORDER.filter(sp=>POTDATA[sp].rows.some(r=>!state.pots.some(x=>x.key===sp+'|'+r.name)));render()};
 window.clearPots=()=>{state.pots=[];state.loaded=[];potDraft='';potOpenSpecs=[];const i=$('potAddInput');if(i)i.value='';render()};
 window.loadSpec=loadSpec;
 window.pot=pot;
@@ -116,7 +117,9 @@ function loadSpec(spec){
 function groupTotals(g){const n=g.items.length||1,cs=g.items.reduce((s,x)=>s+Number(x.cost||0),0),k=Math.min(Math.max(0,Number(g.take)||0),n),top=g.items.map(x=>Number(x.price||0)).sort((a,b)=>b-a).slice(0,k),price=top.reduce((s,x)=>s+x,0);return{n,k,cost:cs/n*k,price,avgCost:cs/n,top}}
 function renderPots(){const e=$('potRows'),canRemove=state.pots.length>1,available=potFlat().filter(p=>!state.pots.some(x=>x.key===p.spec+'|'+p.name));e.innerHTML=(state.pots.length?'':'<div class="potEmpty">候选池为空 —— 请在下方「加入候选锅底」中逐个添加，可跨锅型叠加。<br><span style="font-size:13px">例如先加「42cm 鸳鸯锅 · 红汤＋番茄」，再搜索「奔驰」加「38cm 奔驰锅 · 红汤＋酸汤＋番茄」，两者即可同时进入候选池核算。</span></div>')+state.pots.map((x,i)=>'<div class="potrow"><div><input value="'+escape(x.name)+'" onchange="state.pots['+i+'].name=this.value;render()">'+'<div class="potMeta"><b style="color:#102c47">['+escape(specTitle(x.spec))+']</b> '+escape(x.note||'')+(x.card?'　｜成本卡建议售价 '+money(x.card):'')+(x.price<x.card?'　⚠低于建议':'')+'</div>'+'</div><b class="cost">'+money(x.base+x.side)+'</b><input type="number" step="0.01" value="'+x.price+'" onchange="state.pots['+i+'].price=Number(this.value)||0;render()"><button class="potRemove" type="button" title="删除此锅底" aria-label="删除'+escape(x.name)+'" '+(canRemove?'onclick="removePot('+i+')"':'disabled')+'>×</button></div>').join('')+(available.length?
 '<div class="addline"><div class="field" style="flex:1"><label>加入候选锅底（按锅具大类选择，或输入关键词搜索）</label>'+potCombo()+'</div><button class="btn soft" type="button" onclick="addPotFromCombo()">加入候选锅底</button></div>'
-+'<div class="potAdd"><span class="muted">还没加入的锅底 '+available.length+' 种 · 点击下方锅具大类展开，选择后自动收起</span></div>'
++'<div class="potAdd"><span class="muted">还没加入的锅底 '+available.length+' 种 · 点标题展开，选完点「收起全部」</span>'
++'<button class="btn soft" type="button" style="margin-left:auto" onclick="expandAllPotGroups()">展开全部</button>'
++'<button class="btn soft" type="button" onclick="collapseAllPotGroups()">收起全部</button></div>'
 +'<div class="potGroups">'+POT_ORDER.map(sp=>{
    const rows=POTDATA[sp].rows.filter(r=>!state.pots.some(x=>x.key===sp+'|'+r.name));
    if(!rows.length)return '';
