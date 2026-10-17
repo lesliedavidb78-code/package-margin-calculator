@@ -1,12 +1,22 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>套餐毛利组合器｜菜品组选项版</title><style>
 :root{--ink:#102c47;--muted:#64748b;--line:#e4e9ef;--bg:#f7f9fc;--red:#c91632;--green:#047857;--warm:#fff8e7}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:"Microsoft YaHei",Arial,sans-serif;color:var(--ink)}.page{max-width:1500px;margin:auto;padding:24px}.head{background:#102c47;color:#fff;border-radius:18px;padding:24px 30px;display:flex;justify-content:space-between;align-items:end}.head h1{margin:0;font-size:27px}.head p{margin:8px 0 0;color:#cbd5e1}.badge{font-size:12px;background:#dbeafe;color:#1e3a8a;border-radius:20px;padding:7px 11px;font-weight:700}.layout{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:18px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 2px 10px #102c470a;margin-bottom:18px}.h2{font-size:16px;font-weight:800;margin:0 0 14px}.muted{color:var(--muted);font-size:13px;line-height:1.5}.controls{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:10px}.field label{font-size:12px;color:var(--muted);font-weight:700;display:block;margin-bottom:5px}.field input,.field select,input,select{width:100%;border:1px solid #d7dee7;border-radius:8px;padding:9px;font:inherit;background:#fff}.boardTop{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:8px}.boardTop h2{font-size:24px;margin:0}.boardTop p{font-size:13px;color:var(--muted);margin:7px 0 0}.spec{width:280px}.potHead,.potrow{display:grid;grid-template-columns:1.6fr .75fr .7fr 42px;gap:12px;align-items:center}.potHead{font-size:13px;color:#64748b;font-weight:800;padding:11px 18px;background:#f8fafc}.potrow{padding:12px 18px;border-bottom:1px solid var(--line)}.cost{font-size:20px;font-weight:800;text-align:center}.potMeta{margin-top:5px;font-size:12px;color:#805f1e;font-weight:700}.potRemove{width:36px;height:36px;border:1px solid #f2c4cc;border-radius:9px;background:#fff;color:#c91632;font-size:24px;line-height:1;cursor:pointer}.potRemove:hover{background:#fff1f2}.potRemove:disabled{border-color:#e5e7eb;color:#cbd5e1;background:#f8fafc;cursor:not-allowed}.potAdd{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:13px 18px;background:#fbfcfe;border-top:1px dashed #dbe5ee}.potAdd select{max-width:300px}.potAdd .btn{white-space:nowrap}.summary4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.tile{border:1px solid #dfe6ee;background:#fbfcfe;border-radius:16px;padding:16px;text-align:center}.tile label{color:#64748b;font-size:13px}.tile b{display:block;font-size:28px;margin-top:12px}.tile.red{border-color:#f5bdc7}.tile.red b{color:var(--red)}.tile.green b{color:var(--green)}.bar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}.btn{border:0;background:#102c47;color:#fff;padding:9px 13px;border-radius:8px;font-weight:700;cursor:pointer}.btn.soft{background:#eaf0f7;color:#102c47}.btn.danger{background:#fff;color:#c91632;border:1px solid #f2c4cc}.group{border:1px solid #dbe5ee;border-radius:13px;overflow:hidden;margin-top:12px}.groupHead{background:#f8fafc;padding:13px;display:grid;grid-template-columns:1.4fr .45fr .6fr .8fr auto;gap:9px;align-items:end}.groupHead .formula{font-size:12px;color:#805f1e;background:var(--warm);border:1px solid #f1d596;padding:8px;border-radius:8px;white-space:nowrap}.candidate{display:grid;grid-template-columns:1.35fr .7fr .7fr 32px;gap:8px;align-items:center;padding:9px 13px;border-top:1px solid #eff3f7}.candidate label{font-size:12px;color:var(--muted)}.groupFoot{display:flex;justify-content:flex-end;gap:20px;background:#fbfcfe;padding:11px 13px;color:#334155;font-size:13px}.groupFoot b{font-size:16px;color:#102c47}.addline{display:flex;gap:8px;margin:12px 0 0}.addline input{flex:1}.fixed{display:grid;grid-template-columns:1.3fr .55fr .75fr .75fr 36px;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid #eff3f7}.fixed label{font-size:12px;color:var(--muted)}.person{display:grid;grid-template-columns:1.25fr .45fr .7fr .7fr .8fr 36px;gap:8px;align-items:end;padding:10px 0;border-bottom:1px solid #eff3f7}.hint{margin:0 0 10px;padding:10px 12px;border-radius:9px;background:var(--warm);border:1px solid #f1d596;color:#805f1e;font-size:13px;line-height:1.55}.remove{border:0;background:none;color:#c91632;font-size:21px;cursor:pointer;padding:4px}.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi{padding:14px;background:#f8fafc;border-radius:12px}.kpi label{font-size:12px;color:var(--muted)}.kpi b{display:block;font-size:23px;margin-top:6px}.meter{height:9px;background:#e8edf4;border-radius:8px;margin:14px 0;overflow:hidden}.meter i{display:block;height:100%;background:linear-gradient(90deg,#f0b347,#10a779)}.notice{padding:11px;border-radius:9px;background:#fff8e7;border:1px solid #f1d596;color:#805f1e;font-size:13px;line-height:1.6}@media(max-width:980px){.layout{grid-template-columns:1fr}.controls{grid-template-columns:1fr 1fr}.boardTop{align-items:start;flex-direction:column}.spec{width:100%}}@media(max-width:680px){.page{padding:12px}.head{padding:20px}.head h1{font-size:21px}.summary4{grid-template-columns:1fr 1fr}.potHead,.potrow{grid-template-columns:1.2fr .75fr .7fr 32px;gap:6px;padding-left:6px;padding-right:6px}.cost{font-size:16px}.controls,.groupHead,.candidate,.fixed,.person{grid-template-columns:1fr 1fr}.groupHead .formula{grid-column:1/-1}.remove{justify-self:end}.hideMobile{display:none}}
-.potGroups{display:flex;flex-wrap:wrap;gap:10px;padding:0 18px 14px}
-.potGroup{border:1px solid #dbe5ee;border-radius:12px;background:#fbfcfe;padding:10px 12px;min-width:250px;flex:1 1 260px}
-.potGroupHead{font-size:12px;font-weight:800;color:#102c47;background:#eef3f9;border-radius:7px;padding:6px 9px;margin-bottom:8px}
-.potChip{display:block;width:100%;text-align:left;border:1px solid #e3eaf2;background:#fff;border-radius:9px;padding:7px 10px;margin-bottom:6px;font:inherit;font-size:13px;color:#102c47;cursor:pointer;line-height:1.4}
+.potGroups{display:flex;flex-direction:column;gap:6px;padding:0 18px 14px}
+.potGroup{border:1px solid #dbe5ee;border-radius:11px;background:#fbfcfe;overflow:hidden}
+.potGroup summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:9px 13px;font-size:13px;color:#102c47;user-select:none}
+.potGroup summary::-webkit-details-marker{display:none}
+.potGroup summary:hover{background:#eef5ff}
+.potGroup .pgName{font-weight:800}
+.potGroup .pgCount{color:#805f1e;background:#fff8e7;border:1px solid #f1d596;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:700}
+.potGroup .pgRange{margin-left:auto;color:#64748b;font-size:11px}
+.potGroup .pgArrow{color:#64748b;font-size:11px;transition:transform .18s}
+.potGroup[open] .pgArrow{transform:rotate(180deg)}
+.potGroup[open] summary{border-bottom:1px solid #e6edf5;background:#f2f7fd}
+.potGroupBody{padding:9px 11px;display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:6px;max-height:330px;overflow:auto}
+.potChip{display:flex;flex-direction:column;gap:2px;text-align:left;border:1px solid #e3eaf2;background:#fff;border-radius:9px;padding:7px 10px;font:inherit;color:#102c47;cursor:pointer;line-height:1.35}
 .potChip:hover{background:#eef5ff;border-color:#9db8dd}
-.potChip small{display:block;color:#64748b;font-size:11px;margin-top:2px}
-.potChip.warn small{color:#c91632}
+.potChip .pcName{font-size:13px;font-weight:600}
+.potChip .pcMeta{color:#64748b;font-size:11px}
+.potChip.warn .pcMeta{color:#c91632;font-weight:700}
 .potEmpty{padding:22px 18px;text-align:center;color:#64748b;font-size:14px}
 .combo{position:relative}.comboMenu{display:none;position:absolute;z-index:30;left:0;right:0;top:calc(100% + 3px);max-height:250px;overflow:auto;background:#fff;border:1px solid #cbd5e1;border-radius:8px;box-shadow:0 8px 20px #102c4722}.comboMenu button{display:block;width:100%;border:0;border-bottom:1px solid #edf1f5;background:#fff;padding:9px 11px;text-align:left;font:inherit;color:#102c47;cursor:pointer}.comboMenu button:hover{background:#eef5ff}.comboMenu small{color:#64748b;margin-left:8px}</style></head><body><main class="page"><header class="head"><div><h1>套餐毛利组合器 · 菜品组选项版</h1><p>锅底选项、N选K菜品组、固定菜品与按人数项目分别核算；所有单价均可按门店修改。</p></div><span class="badge">62 种锅底 · 逐个加入 · 可跨锅型叠加</span></header><div class="layout"><section>
 <div class="card"><div class="bar"><div><h2 class="h2" style="margin:0">套餐基础设置</h2><div class="muted">锅底成本已锁定；菜品毛利表可按门店随时重新导入。</div></div><button class="btn soft" onclick="exportCompactPng()">导出精简图（PNG）</button></div><div class="controls"><div class="field"><label>套餐名称</label><input id="packName" value="自定义套餐"></div><div class="field"><label>套餐售价（元）</label><input id="packSale" type="number" min="0" value="158"></div><div class="field"><label>用餐人数</label><input id="people" type="number" min="1" value="2"></div></div><div class="addline"><div class="field" style="flex:1"><label>导入本门店菜品毛利表（XLSX / CSV）</label><input id="marginFile" type="file" accept=".xlsx,.xls,.csv" onchange="importMarginFile(event)"></div></div><div id="importStatus" class="muted" style="margin-top:7px">当前使用示例菜品毛利数据。导入后将自动替换同名菜品的成本和门市价；锅底数据不会被覆盖。</div></div>
@@ -45,6 +55,13 @@ window.openPotMenu=()=>{const m=$('potAddMenu');if(m)m.style.display='block'};
 window.filterPotMenu=q=>{const m=$('potAddMenu');if(!m)return;m.style.display='block';const k=String(q||'').toLowerCase();m.querySelectorAll('button').forEach(b=>b.style.display=(b.dataset.search||'').includes(k)?'block':'none')};
 window.choosePot=idx=>{const p=potFlat()[Number(idx)];if(!p)return;potDraft=p.name;const i=$('potAddInput');if(i)i.value=p.name;addPotByKey(p.spec+'|'+p.name)};
 window.draftPotName=v=>{potDraft=String(v||'').trim()};
+let potOpenSpecs=[];//手动展开的锅具大类
+document.addEventListener('toggle',e=>{
+  const d=e.target;if(!d||!d.classList||!d.classList.contains||!d.classList.contains('potGroup'))return;
+  const sp=d.getAttribute&&d.getAttribute('data-spec');if(!sp)return;
+  if(d.open){if(!potOpenSpecs.includes(sp))potOpenSpecs.push(sp);}
+  else potOpenSpecs=potOpenSpecs.filter(x=>x!==sp);
+},true);
 window.addPotByKey=key=>{
   const k=String(key||'');const i=k.indexOf('|');if(i<0)return;
   const sp=k.slice(0,i),name=k.slice(i+1);
@@ -53,6 +70,7 @@ window.addPotByKey=key=>{
   state.pots.push(potFromSource(sp,row));
   state.loaded=Array.from(new Set([...(state.loaded||[]),sp]));
   potDraft='';const inp=$('potAddInput');if(inp)inp.value='';
+  potOpenSpecs=potOpenSpecs.filter(x=>x!==sp);//选完自动收起该组
   render();
 };
 window.addPotFromCombo=()=>{
@@ -65,7 +83,7 @@ window.addPotFromCombo=()=>{
   addPotByKey(pick.spec+'|'+pick.name);
 };
 window.loadAllSpecs=()=>{loadSpec('__all__');render()};
-window.clearPots=()=>{state.pots=[];state.loaded=[];potDraft='';const i=$('potAddInput');if(i)i.value='';render()};
+window.clearPots=()=>{state.pots=[];state.loaded=[];potDraft='';potOpenSpecs=[];const i=$('potAddInput');if(i)i.value='';render()};
 window.loadSpec=loadSpec;
 window.pot=pot;
 window.addPotFromSelect=()=>{const key=$('potAddSelect')?.value;if(!key)return;addPotByKey(key)};
@@ -98,14 +116,20 @@ function loadSpec(spec){
 function groupTotals(g){const n=g.items.length||1,cs=g.items.reduce((s,x)=>s+Number(x.cost||0),0),k=Math.min(Math.max(0,Number(g.take)||0),n),top=g.items.map(x=>Number(x.price||0)).sort((a,b)=>b-a).slice(0,k),price=top.reduce((s,x)=>s+x,0);return{n,k,cost:cs/n*k,price,avgCost:cs/n,top}}
 function renderPots(){const e=$('potRows'),canRemove=state.pots.length>1,available=potFlat().filter(p=>!state.pots.some(x=>x.key===p.spec+'|'+p.name));e.innerHTML=(state.pots.length?'':'<div class="potEmpty">候选池为空 —— 请在下方「加入候选锅底」中逐个添加，可跨锅型叠加。<br><span style="font-size:13px">例如先加「42cm 鸳鸯锅 · 红汤＋番茄」，再搜索「奔驰」加「38cm 奔驰锅 · 红汤＋酸汤＋番茄」，两者即可同时进入候选池核算。</span></div>')+state.pots.map((x,i)=>'<div class="potrow"><div><input value="'+escape(x.name)+'" onchange="state.pots['+i+'].name=this.value;render()">'+'<div class="potMeta"><b style="color:#102c47">['+escape(specTitle(x.spec))+']</b> '+escape(x.note||'')+(x.card?'　｜成本卡建议售价 '+money(x.card):'')+(x.price<x.card?'　⚠低于建议':'')+'</div>'+'</div><b class="cost">'+money(x.base+x.side)+'</b><input type="number" step="0.01" value="'+x.price+'" onchange="state.pots['+i+'].price=Number(this.value)||0;render()"><button class="potRemove" type="button" title="删除此锅底" aria-label="删除'+escape(x.name)+'" '+(canRemove?'onclick="removePot('+i+')"':'disabled')+'>×</button></div>').join('')+(available.length?
 '<div class="addline"><div class="field" style="flex:1"><label>加入候选锅底（按锅具大类选择，或输入关键词搜索）</label>'+potCombo()+'</div><button class="btn soft" type="button" onclick="addPotFromCombo()">加入候选锅底</button></div>'
-+'<div class="potAdd"><span class="muted" style="margin-right:auto">还没加入的锅底 '+available.length+' 种 · 按锅具大类分组如下（灰色为已在候选池中）</span></div>'
++'<div class="potAdd"><span class="muted">还没加入的锅底 '+available.length+' 种 · 点击下方锅具大类展开，选择后自动收起</span></div>'
 +'<div class="potGroups">'+POT_ORDER.map(sp=>{
    const rows=POTDATA[sp].rows.filter(r=>!state.pots.some(x=>x.key===sp+'|'+r.name));
    if(!rows.length)return '';
-   return '<div class="potGroup"><div class="potGroupHead">'+escape(specTitle(sp))+'（剩 '+rows.length+'）</div>'
-    +rows.map(r=>'<button type="button" class="potChip" data-key="'+escape(sp+'|'+r.name)+'" onclick="addPotByKey(this.dataset.key)">'
-      +escape(r.name.replace(/^[^·]*· /,''))+' <small>成本 '+money(r.cost)+' · 售价 '+money(r.price)+(r.price<r.card?' ⚠':'')+'</small></button>').join('')
-    +'</div>';
+   const cheapest=Math.min(...rows.map(r=>r.cost)), dearest=Math.max(...rows.map(r=>r.cost));
+   return '<details class="potGroup" data-spec="'+escape(sp)+'"'+(potOpenSpecs.includes(sp)?' open':'')+'><summary><span class="pgName">'+escape(specTitle(sp))+'</span>'
+    +'<span class="pgCount">剩 '+rows.length+' 种</span>'
+    +'<span class="pgRange">成本 '+cheapest.toFixed(2)+'~'+dearest.toFixed(2)+'</span>'
+    +'<span class="pgArrow">▼</span></summary>'
+    +'<div class="potGroupBody">'
+    +rows.map(r=>'<button type="button" class="potChip'+(r.price<r.card?' warn':'')+'" data-key="'+escape(sp+'|'+r.name)+'" onclick="addPotByKey(this.dataset.key)">'
+      +'<span class="pcName">'+escape(r.name.replace(/^[^·]*· /,''))+'</span>'
+      +'<span class="pcMeta">成本 '+money(r.cost)+' · 售价 '+money(r.price)+(r.price<r.card?' ⚠低于建议':'')+'</span></button>').join('')
+    +'</div></details>';
  }).join('')+'</div>'
 :'');const n=state.pots.length||1,ac=state.pots.reduce((s,x)=>s+x.base+x.side,0)/n,ap=state.pots.reduce((s,x)=>s+x.price,0)/n,sp=Array.from(new Set(state.pots.map(x=>x.spec).filter(Boolean))),p=pot();$('potTitle').textContent='锅底候选池'+(sp.length>1?'（跨 '+sp.length+' 种锅型）':'');$('potCount').textContent=n+'选1'+(sp.length>1?' · '+sp.length+'型':'');$('potSaleLabel').textContent='对外售价（'+n+'选1）';$('avgCost').textContent=money(ac);$('avgSale').textContent=money(ap);$('avgMargin').textContent=money(ap-ac)+' · '+pct(ap?(ap-ac)/ap:0)}
 function renderGroups(){const e=$('groups');e.innerHTML=state.groups.map((g,gi)=>{const t=groupTotals(g);return '<div class="group"><div class="groupHead"><div class="field"><label>组名</label><input value="'+escape(g.name)+'" onchange="state.groups['+gi+'].name=this.value;render()"></div><div class="field"><label>候选 N</label><input disabled value="'+t.n+'"></div><div class="field"><label>计入 K</label><input type="number" min="1" max="'+t.n+'" value="'+t.k+'" onchange="state.groups['+gi+'].take=Math.min('+t.n+',Math.max(1,Number(this.value)||1));render()"></div><div class="formula">成本：候选均价 × '+t.k+'；门市价：最高 '+t.k+' 项相加</div><button class="btn danger" onclick="state.groups.splice('+gi+',1);render()">删除本组</button></div><div id="g'+gi+'">'+g.items.map((x,ii)=>'<div class="candidate"><div class="field"><label>候选菜品（搜索或点击下拉）</label>'+catalogCombo('g_'+gi+'_'+ii,x.name,'g',gi,ii)+'</div><div class="field"><label>门市价</label><input type="number" step="0.01" value="'+x.price+'" onchange="state.groups['+gi+'].items['+ii+'].price=Number(this.value)||0;render()"></div><div class="field"><label>成本</label><input type="number" step="0.01" value="'+x.cost+'" onchange="state.groups['+gi+'].items['+ii+'].cost=Number(this.value)||0;render()"></div><button class="remove" onclick="state.groups['+gi+'].items.splice('+ii+',1);render()">×</button></div>').join('')+'</div><div class="addline">'+catalogCombo('ga_'+gi,'','a',gi,0)+'<button class="btn soft" onclick="addCandidate('+gi+')">加入候选菜品</button></div><div class="groupFoot"><span>平均成本 <b>'+money(t.avgCost)+'</b></span><span>套餐计入成本 <b>'+money(t.cost)+'</b></span><span>最高 '+t.k+' 项门市价 <b>'+money(t.price)+'</b></span></div></div>'}).join('')||'<div class="notice">还没有任选菜品组。点击“新增 N选K 组”即可创建。</div>'}
